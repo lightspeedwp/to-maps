@@ -33,51 +33,6 @@ function lsx_to_maps_activate_plugin() {
 }
 register_activation_hook( __FILE__, 'lsx_to_maps_activate_plugin' );
 
-/* ======================= The API Classes ========================= */
-if(!class_exists('LSX_API_Manager')){
-	require_once('classes/class-lsx-api-manager.php');
-}
-
-/**
- *	Grabs the email and api key from the LSX Search Settings.
- */
-function lsx_to_maps_options_pages_filter($pages){
-	$pages[] = 'lsx-to-settings';
-	return $pages;
-}
-add_filter('lsx_api_manager_options_pages','lsx_to_maps_options_pages_filter',10,1);
-
-function lsx_to_maps_api_admin_init(){
-	$options = get_option('_lsx-to_settings',false);
-	$data = array('api_key'=>'','email'=>'');
-
-	if(false !== $options && isset($options['api'])){
-		if(isset($options['api']['to-maps_api_key']) && '' !== $options['api']['to-maps_api_key']){
-			$data['api_key'] = $options['api']['to-maps_api_key'];
-		}
-		if(isset($options['api']['to-maps_email']) && '' !== $options['api']['to-maps_email']){
-			$data['email'] = $options['api']['to-maps_email'];
-		}
-	}
-
-	$instance = get_option( 'lsx_api_instance', false );
-	if(false === $instance){
-		$instance = LSX_API_Manager::generatePassword();
-	}
-
-	$api_array = array(
-		'product_id'	=>		'TO Maps',
-		'version'		=>		'1.1.1',
-		'instance'		=>		$instance,
-		'email'			=>		$data['email'],
-		'api_key'		=>		$data['api_key'],
-		'file'			=>		'to-maps.php',
-		'documentation' =>		'tour-operator-maps'
-	);
-
-	$lsx_to_api_manager = new LSX_API_Manager($api_array);
-}
-add_action('admin_init','lsx_to_maps_api_admin_init');
 
 /* ======================= Below is the Plugin Class init ========================= */
 
