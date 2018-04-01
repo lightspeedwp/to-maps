@@ -1,7 +1,7 @@
 === Tour Operator Maps ===
 Contributors: feedmymedia
 Donate link: https://www.lsdev.biz/product/tour-operator-maps/
-Tags: tour opertator, lsx theme, maps, google maps, location
+Tags: tour operator, lsx theme, maps, google maps, location
 Requires at least: 4.3
 Tested up to: 4.9.4
 Requires PHP: 7.0
