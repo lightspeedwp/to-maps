@@ -1,11 +1,11 @@
-=== Tour Operator Maps ===
+﻿=== Tour Operator Maps ===
 Contributors: feedmymedia
 Donate link: https://www.lsdev.biz/product/tour-operator-maps/
 Tags: tour operator, lsx theme, maps, google maps, location
 Requires at least: 4.3
 Tested up to: 4.9.4
 Requires PHP: 7.0
-Stable tag: 1.2
+Stable tag: 1.1.2
 License: GPLv3
 
 Embed maps on your Tour Operator website that show the progress your guests make as they travel from destination to destination
@@ -50,3 +50,44 @@ Yes you can! Join in on our [GitHub repository](https://github.com/lightspeeddev
 
 1. Back-end View
 2. Website Showcase
+
+== Changelog ==
+
+## Change log
+
+### 1.1.2
+* Fix - Removed API Class Call
+
+### 1.1.1
+* Fix - Small info window reposition after it loaded (fix issue with images after load)
+* Fix - Fixed an issue with Parent Destinations when they have no connections
+
+### 1.1.0
+* Dev - Support LSX Theme 2.0 new designs
+* Added compatibility with LSX 2.0
+* Added compatibility with Tour Operator 1.1
+* Dev - New project structure
+* Fix - Fixed scripts/styles loading order
+* Fix - Fixed small issues
+* Dev - Changed the country map output to display the child regions
+* Dev - Added in an option for destinations to set a manual zoom and center for the single maps which display all regions
+* Fix - Fixed the medium cluster image path
+* Fix - The missing breadcrumbs on the destination archive
+* Fix - Fixed the Image upload fields for the Default Marker and Cluster Icons
+
+### 1.0.3
+* Fix - API key and email grabbed from the correct settings tab
+* Fix - Adjusted JavaScript class names
+* Fix - Adjusted JavaScript to reload the map after the page is already loaded
+* Dev - Enabled integration with Snazzy Maps plugin
+* Fix - Small fix on GMaps info window style
+
+### 1.0.2
+* Fix - Fixed all prefixes replaces (to_ > lsx_to_, TO_ > LSX_TO_)
+
+### 1.0.1
+* Fix - Reduced the access to server (check API key status) using transients
+* Fix - Made the API URLs dev/live dynamic using a prefix "dev-" in the API KEY
+
+### 1.0.0
+* First Version

@@ -1,5 +1,8 @@
 ## Change log
 
+### 1.1.2
+* Fix - Removed API Class Call
+
 ### 1.1.1
 * Fix - Small info window reposition after it loaded (fix issue with images after load)
 * Fix - Fixed an issue with Parent Destinations when they have no connections
