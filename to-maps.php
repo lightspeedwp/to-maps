@@ -22,17 +22,6 @@ define('LSX_TO_MAPS_CORE',  __FILE__ );
 define('LSX_TO_MAPS_URL',  plugin_dir_url( __FILE__ ) );
 define('LSX_TO_MAPS_VER',  '1.1.1' );
 
-/**
- * Runs once when the plugin is activated.
- */
-function lsx_to_maps_activate_plugin() {
-    $lsx_to_password = get_option('lsx_api_instance',false);
-    if(false === $lsx_to_password){
-    	update_option('lsx_api_instance',LSX_API_Manager::generatePassword());
-    }
-}
-register_activation_hook( __FILE__, 'lsx_to_maps_activate_plugin' );
-
 
 /* ======================= Below is the Plugin Class init ========================= */
 
