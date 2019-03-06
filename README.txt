@@ -1,4 +1,4 @@
-﻿=== Tour Operator Maps ===
+=== Tour Operator Maps ===
 Contributors: feedmymedia
 Donate link: https://www.lsdev.biz/product/tour-operator-maps/
 Tags: tour operator, lsx theme, maps, google maps, location
@@ -55,8 +55,12 @@ Yes you can! Join in on our [GitHub repository](https://github.com/lightspeeddev
 
 ## Change log
 
+### 1.1.3
+* Fix - Fixing bug issue with the Google Maps API field display
+
 ### 1.1.2
 * Fix - Removed API Class Call
+* Fix - Fixing bug issue with the Google Maps API field display
 
 ### 1.1.1
 * Fix - Small info window reposition after it loaded (fix issue with images after load)
