@@ -50,7 +50,6 @@ class LSX_TO_Maps_Admin extends LSX_TO_Maps{
 	 * @return null
 	 */
 	public function api_key_settings($tab='general') {
-		if('settings' !== $tab){return false;}
 		?>
 		<tr class="form-field-wrap">
 			<th class="tour-operator_table_heading" style="padding-bottom:0px;" scope="row" colspan="2">
