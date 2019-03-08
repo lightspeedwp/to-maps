@@ -5,7 +5,7 @@ Tags: tour operator, lsx theme, maps, google maps, location
 Requires at least: 4.3
 Tested up to: 4.9.4
 Requires PHP: 7.0
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPLv3
 
 Embed maps on your Tour Operator website that show the progress your guests make as they travel from destination to destination
