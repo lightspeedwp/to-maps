@@ -37,12 +37,13 @@ class LSX_TO_Maps_Frontend extends LSX_TO_Maps {
 		wp_enqueue_script( 'googlemaps_api', 'https://maps.googleapis.com/maps/api/js?key=' . $this->api_key . '&libraries=places', array( 'jquery' ), null, true );
 		wp_enqueue_script( 'googlemaps_api_markercluster', LSX_TO_MAPS_URL . '/assets/js/google-markerCluster.js', array( 'googlemaps_api' ), null, true );
 		wp_enqueue_script( 'lsx_to_maps', LSX_TO_MAPS_URL . '/assets/js/to-maps.min.js', array( 'jquery', 'googlemaps_api', 'googlemaps_api_markercluster' ), null, true );
-
-		wp_localize_script( 'lsx_to_maps', 'lsx_to_maps_params', array(
-			'apiKey' => $this->api_key,
-			'start_marker' => $this->markers->start,
-			'end_marker' => $this->markers->end,
-		) );
+		if ( property_exists( $this->markers, 'start' ) && property_exists( $this->markers, 'end' ) ) {
+			wp_localize_script( 'lsx_to_maps', 'lsx_to_maps_params', array(
+				'apiKey' => $this->api_key,
+				'start_marker' => $this->markers->start,
+				'end_marker' => $this->markers->end,
+			) );
+		}
 	}
 
 	/**
