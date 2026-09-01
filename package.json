@@ -30,6 +30,6 @@
     "gulp-sort": "^2.0.0",
     "gulp-uglify": "^3.0.0",
     "gulp-wp-pot": "^2.0.4",
-    "jshint": "^2.9.6"
+    "jshint": "^2.13.6"
   }
 }
