@@ -1,5 +1,17 @@
 ## Change log
 
+### 1.1.4
+* Dev - Replaced the dead gulp toolchain with terser and WP-CLI. The gulpfile used gulp 3 task syntax against a declared gulp 4, so every invocation aborted at load and this build had not run in years.
+* Dev - JS minification now runs through terser, the maintained successor to uglify-js. The regenerated to-maps.min.js is equivalent to the previous output.
+* Dev - Translation tasks moved to WP-CLI (wp i18n make-pot / update-po / make-mo), matching Tour Operator.
+* Dev - Removed jshint, unmaintained and the source of the old lodash and minimatch trees. The dependency tree drops from 296 packages to 8.
+* Dev - Removed the overrides block, which pinned into a dependency tree that no longer exists.
+* Dev - Node pinned to 24.20.0, the current LTS line.
+* Dev - Added CI: PHP syntax lint across 8.2, 8.3 and 8.4, plus a check that the committed minified asset matches its source.
+* Dev - Removed .travis.yml, .mergify.yml and the Sublime project file, and added a .gitignore.
+* Fix - The frontend scripts were enqueued with a null version, so WordPress emitted no cache-busting query string and a changed asset could be served stale indefinitely. They now version off LSX_TO_MAPS_VER.
+* Security - Cleared both Dependabot alerts, including lodash.template <= 4.5.0, which had no patched version and could only be resolved by removing the package.
+
 ### 1.1.3
 * Fix - Fixing bug issue with the Google Maps API field display
 
