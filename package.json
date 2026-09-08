@@ -6,7 +6,7 @@
     "build": "npm run build:js",
     "build:js": "terser assets/js/to-maps.js -c -m -o assets/js/to-maps.min.js",
     "build:pot": "wp i18n make-pot . languages/to-maps.pot",
-    "build:po": "cp languages/to-maps.pot languages/to-maps-en_EN.po",
+    "build:po": "wp i18n update-po languages/to-maps.pot languages/to-maps-en_EN.po",
     "build:mo": "wp i18n make-mo languages",
     "build:lang": "npm run build:pot && npm run build:po && npm run build:mo"
   },
