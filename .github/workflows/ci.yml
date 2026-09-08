@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches: [master, develop]
+  pull_request:
+
+# Supersedes the old cancel.yml / styfle/cancel-workflow-action pattern:
+# GitHub cancels superseded runs natively per ref.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  php:
+    name: PHP ${{ matrix.php }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['8.2', '8.3', '8.4']
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+
+      - name: Lint PHP syntax
+        run: git ls-files '*.php' | xargs -r -n1 -P4 php -l
+
+  assets:
+    name: Built assets are current
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Rebuild minified JS
+        run: npm run build:js
+
+      # The committed .min.js must match what the source minifies to, so a
+      # source-only change cannot ship stale minified output.
+      - name: Fail if the committed output is stale
+        run: git diff --exit-code -- assets/js/
